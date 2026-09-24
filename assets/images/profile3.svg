@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="p3h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efe6f5"/><stop offset="1" stop-color="#d9c3e6"/></linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="#f4c9dc"/>
+  <circle cx="330" cy="70" r="10" fill="#fff" opacity=".6"/>
+  <circle cx="70" cy="120" r="6" fill="#fff" opacity=".5"/>
+  <circle cx="300" cy="180" r="5" fill="#fff" opacity=".5"/>
+  <!-- chibi body -->
+  <ellipse cx="200" cy="330" rx="74" ry="86" fill="#ffe3d6"/>
+  <path d="M110 330Q100 190 200 184Q300 190 290 335Q262 250 200 258Q142 262 110 330Z" fill="url(#p3h)"/>
+  <ellipse cx="200" cy="196" rx="42" ry="30" fill="url(#p3h)"/>
+  <circle cx="172" cy="335" r="9" fill="#2b2b36"/>
+  <circle cx="228" cy="335" r="9" fill="#2b2b36"/>
+  <ellipse cx="152" cy="360" rx="12" ry="7" fill="#f2a8a0" opacity=".6"/>
+  <ellipse cx="248" cy="360" rx="12" ry="7" fill="#f2a8a0" opacity=".6"/>
+  <path d="M182 372q18 10 36 0" stroke="#c98" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- body / dress -->
+  <path d="M120 500V420Q200 380 280 420V500Z" fill="#6c5b9c"/>
+  <!-- guitar -->
+  <g transform="translate(130,430) rotate(-18)">
+    <ellipse cx="40" cy="60" rx="34" ry="44" fill="#a9744a"/>
+    <ellipse cx="40" cy="60" rx="18" ry="24" fill="#7a4f30"/>
+    <rect x="34" y="-30" width="12" height="92" rx="4" fill="#8a5a36"/>
+    <rect x="30" y="-42" width="20" height="16" rx="3" fill="#5a3b24"/>
+  </g>
+  <!-- arms -->
+  <path d="M120 460Q95 440 100 410" stroke="#ffe3d6" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M280 460Q300 430 288 400" stroke="#ffe3d6" stroke-width="18" fill="none" stroke-linecap="round"/>
+</svg>

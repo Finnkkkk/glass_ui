@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="p1b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fa2d6"/><stop offset="1" stop-color="#b7a3da"/></linearGradient>
+    <linearGradient id="p1h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#232a44"/><stop offset="1" stop-color="#3c4a76"/></linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#p1b)"/>
+  <ellipse cx="205" cy="235" rx="112" ry="122" fill="#ffe3d6"/>
+  <path d="M90 235Q75 90 205 82Q330 90 320 245Q285 165 205 178Q135 185 90 235Z" fill="url(#p1h)"/>
+  <ellipse cx="205" cy="95" rx="46" ry="34" fill="url(#p1h)"/>
+  <circle cx="168" cy="240" r="10" fill="#2b2b36"/>
+  <circle cx="245" cy="240" r="10" fill="#2b2b36"/>
+  <path d="M172 268q30 20 60 0" stroke="#c98" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <ellipse cx="150" cy="268" rx="16" ry="9" fill="#f2a8a0" opacity=".6"/>
+  <ellipse cx="262" cy="268" rx="16" ry="9" fill="#f2a8a0" opacity=".6"/>
+  <path d="M70 500V370Q205 300 335 370V500Z" fill="#20222c"/>
+  <path d="M70 500V385Q205 350 335 385V500Z" fill="#f4f1ee"/>
+  <!-- peace sign hand -->
+  <g transform="translate(255,300) rotate(-12)">
+    <path d="M0 60Q-10 20 10 0Q20 -35 40 -30Q48 -10 40 10L54 -34Q66 -30 60 -8L46 14L64 -20Q76 -14 68 6L48 36Q60 30 66 44Q58 66 30 66Z" fill="#ffe3d6"/>
+  </g>
+</svg>
