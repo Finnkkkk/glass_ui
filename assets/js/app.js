@@ -15,12 +15,12 @@ const toast = (msg) => {
 
 /* ---------------- Config / persistence ---------------- */
 const DEFAULTS = {
-    hero: 'assets/images/hero.svg',
-    background: 'assets/images/background.svg',
-    profile1: 'assets/images/profile1.svg',
-    profile2: 'assets/images/profile2.svg',
-    profile3: 'assets/images/profile3.svg',
-    avatar: 'assets/images/avatar.svg',
+    hero: 'assets/images/hero.png',
+    background: 'assets/images/background.jpg',
+    profile1: 'assets/images/profile1.jpg',
+    profile2: 'assets/images/profile2.jpg',
+    profile3: 'assets/images/profile3.jpg',
+    avatar: 'assets/images/avatar.jpg',
     music: '',
     musicTitle: 'Untitled',
     name: 'Expyy',
@@ -28,7 +28,7 @@ const DEFAULTS = {
     opacity: 70,
     charShadow: 55,
     charRadius: 26,
-    theme: 'light'
+    theme: 'dark'
 };
 
 let config = { ...DEFAULTS };
@@ -185,13 +185,13 @@ const targetToElements = {
     profile3: ['profile3', 'previewProfile3'],
     avatar: ['avatarSmall', 'previewAvatar']
 };
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml','video/mp4'];
 const MAX_SIZE = 5 * 1024 * 1024;
 
 function isAllowedImage(file) {
     if (!file) return false;
     if (file.type && ALLOWED_TYPES.includes(file.type)) return true;
-    return /\.(png|jpe?g|webp|gif|svg)$/i.test(file.name || '');
+    return /\.(png|jpe?g|webp|gif|svg|mp4)$/i.test(file.name || '');
 }
 
 function handleFile(target, file) {

@@ -45,7 +45,7 @@ img { -webkit-user-drag: none; user-select: none; }
 }
 .background {
     z-index: -4;
-    background-image: url("../images/background.svg");
+    background-image: url("../images/background.jpg");
     background-size: cover;
     background-position: center;
     transform: scale(1.16);
