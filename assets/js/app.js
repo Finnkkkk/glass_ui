@@ -15,12 +15,15 @@ const toast = (msg) => {
 
 /* ---------------- Config / persistence ---------------- */
 const DEFAULTS = {
-    hero: 'assets/images/hero.png',
+    heroLight: 'assets/images/hero-light.png',
+    heroDark: 'assets/images/hero-dark.png',
+
     background: 'assets/images/background.jpg',
     profile1: 'assets/images/profile1.jpg',
     profile2: 'assets/images/profile2.jpg',
     profile3: 'assets/images/profile3.jpg',
     avatar: 'assets/images/avatar.jpg',
+
     music: '',
     musicTitle: 'Untitled',
     name: 'Expyy',
@@ -50,14 +53,103 @@ function cacheBust(src) {
     if (!src) return src;
     return src.startsWith('data:') ? src : src + (src.includes('?') ? '&' : '?') + 'v=' + Date.now();
 }
+
+// Pré-carrega os dois Heroes para a troca de tema ser instantânea.
+const heroPreload = {};
+
+function preloadHero(src) {
+    if (!src || src.startsWith('data:') || heroPreload[src]) return;
+
+    const img = new Image();
+    img.src = src;
+    heroPreload[src] = img;
+}
+
+function getHeroSrc() {
+    // Se o usuário enviou uma imagem personalizada, ela tem prioridade.
+    // Ignora o antigo hero.png salvo no localStorage.
+    if (
+        config.hero &&
+        config.hero !== 'assets/images/hero.png'
+    ) {
+        return config.hero;
+    }
+
+    return config.theme === 'dark'
+        ? config.heroDark
+        : config.heroLight;
+}
+
+// Carrega as duas imagens assim que o JS inicia.
+preloadHero(config.heroLight);
+preloadHero(config.heroDark);
+
+function applyHero() {
+    const heroSrc = getHeroSrc();
+    const hero = $('heroImage');
+    const preview = $('previewHero');
+
+    if (!heroSrc) return;
+
+    // Imagem personalizada salva como Data URL.
+    if (heroSrc.startsWith('data:')) {
+        if (hero) hero.src = heroSrc;
+        if (preview) preview.src = heroSrc;
+        return;
+    }
+
+    // Se já estiver carregada, troca imediatamente.
+    const cached = heroPreload[heroSrc];
+
+    if (
+        cached &&
+        cached.complete &&
+        cached.naturalWidth > 0
+    ) {
+        if (hero) hero.src = heroSrc;
+        if (preview) preview.src = heroSrc;
+        return;
+    }
+
+    // Se ainda estiver carregando, espera terminar.
+    const img = cached || new Image();
+
+    if (!cached) {
+        heroPreload[heroSrc] = img;
+        img.src = heroSrc;
+    }
+
+    const requestId = ++applyHero.requestId;
+
+    img.onload = () => {
+        // Evita aplicar a imagem errada se o usuário clicar
+        // rapidamente várias vezes no botão de tema.
+        if (requestId !== applyHero.requestId) return;
+
+        if (hero) hero.src = heroSrc;
+        if (preview) preview.src = heroSrc;
+    };
+
+    img.onerror = () => {
+        if (requestId !== applyHero.requestId) return;
+
+        if (hero) hero.src = heroSrc;
+        if (preview) preview.src = heroSrc;
+    };
+}
+
+applyHero.requestId = 0;
+
 function applyConfig() {
-    setImage('heroImage', cacheBust(config.hero));
+
+    applyHero();
+
     setImage('profile1', cacheBust(config.profile1));
     setImage('profile2', cacheBust(config.profile2));
     setImage('profile3', cacheBust(config.profile3));
     setImage('musicArtImg', cacheBust(config.profile3));
     setImage('avatarSmall', cacheBust(config.avatar));
-    setImage('previewHero', cacheBust(config.hero));
+
     setImage('previewBackground', cacheBust(config.background));
     setImage('previewProfile1', cacheBust(config.profile1));
     setImage('previewProfile2', cacheBust(config.profile2));
@@ -153,8 +245,14 @@ renderCalendar();
 
 /* ---------------- Theme ---------------- */
 $('themeBtn').onclick = () => {
-    config.theme = config.theme === 'dark' ? 'light' : 'dark';
-    document.body.classList.toggle('dark', config.theme === 'dark');
+    config.theme =
+        config.theme === 'dark'
+            ? 'light'
+            : 'dark';
+
+    // Troca o tema e o Hero imediatamente.
+    applyConfig();
+
     persistConfig();
 };
 
