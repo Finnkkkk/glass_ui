@@ -1,52 +1,95 @@
-# Anime Glass UI — GitHub Pages
+<div align="center">
+  
+  # 🌸✨ Anime Glass UI
 
-Interface estática inspirada no design enviado, pronta para publicar no GitHub Pages.
+  Uma interface de utilizador moderna, responsiva e elegante, inspirada na estética de Anime e desenvolvida com o efeito *Glassmorphism*.
 
-## Importante
+  [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](#)
+  [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](#)
+  [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](#)
+  [![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](#)
 
-GitHub Pages hospeda arquivos estáticos e **não executa PHP**. Por isso esta versão não usa:
-- PHP
-- `api/upload.php`
-- banco de dados
-- servidor de upload
+</div>
 
-A troca de imagens funciona 100% no navegador usando `localStorage`. As imagens escolhidas ficam salvas no dispositivo/navegador do visitante.
+---
 
-## Publicar
+## 📖 Visão Geral
 
-1. Crie um repositório no GitHub.
-2. Envie o conteúdo desta pasta para o repositório.
-3. Vá em `Settings` → `Pages`.
-4. Em `Build and deployment`, escolha `Deploy from a branch`.
-5. Selecione `main` e `/ (root)`.
-6. Salve e aguarde o GitHub Pages publicar.
+O **Anime Glass UI** é um projeto *frontend* focado em explorar tendências modernas de design. Utilizando a técnica de *Glassmorphism* (vidro fosco), a interface sobrepõe elementos translúcidos a fundos coloridos em formato SVG, criando uma sensação de profundidade e leveza, perfeitamente combinada com ilustrações temáticas de anime.
 
-A página inicial é `index.html`.
+🔗 **Link do Projeto em Execução:** [https://finnkkkk.github.io/glass_ui/]
 
-## Personalização
+## ✨ Funcionalidades
 
-No botão da lateral você pode trocar:
-- background
-- imagem principal
-- 3 imagens da galeria
-- avatar
+*   **Design Glassmorphism:** Cartões, menus e modais com desfoque de fundo (`backdrop-filter`) e bordas subtis.
+*   **Tema Anime:** Imagens de fundo (`background`) e avatares (`hero`, `profile1`, etc.) desenhados em vetor para máxima nitidez. (Opcional)
+*   **100% Responsivo:** A interface ajusta-se automaticamente a qualquer dispositivo (Mobile, Tablet e Desktop).
+*   **Interações Dinâmicas:** Animações fluidas e controlo de interface geridos através de Vanilla JavaScript.
+*   **Performance:** Uso de recursos SVG leves para garantir carregamentos rápidos.
 
-Também há:
-- relógio em tempo real
-- calendário
-- modo claro/escuro
-- parallax
-- player HTML5
-- animações
-- responsividade
-- preferências locais
+## 🛠️ Tecnologias Utilizadas
 
-### Limitação das imagens
+| Tecnologia | Descrição do Uso no Projeto |
+| :--- | :--- |
+| **HTML5** | Estruturação semântica de todo o conteúdo da página (`index.html`). |
+| **CSS3** | Estilização, variáveis globais de cores, *media queries* e efeitos de vidro (`style.css`). |
+| **JavaScript** | Lógica de interação no lado do cliente (`app.js`). |
+| **SVGs** | Imagens e gráficos vetoriais de alta resolução que compõem o *design*. |
 
-Como não existe backend no GitHub Pages, uma imagem enviada pelo usuário **não é salva no repositório**. Ela é convertida para Data URL e guardada no `localStorage` daquele navegador.
+## 📁 Estrutura do Projeto
 
-Se quiser que a imagem fique pública para todos os visitantes, ela precisa ser colocada no repositório (por exemplo em `assets/images/`) ou usar um serviço externo/backend.
+Para facilitar a navegação pelo código, o projeto está organizado da seguinte maneira:
 
-## Música
+```text
+📦 anime_glass_ui_github_pages
+ ┣ 📂 assets
+ ┃ ┣ 📂 css
+ ┃ ┃ ┗ 📜 style.css        # Folha de estilos principal
+ ┃ ┣ 📂 images
+ ┃ ┃ ┣ 🖼️ avatar.jpg         # Avatar principal do utilizador
+ ┃ ┃ ┣ 🖼️ background.jpg     # Fundo abstrato da página
+ ┃ ┃ ┣ 🖼️ hero.png         # Ilustração de destaque
+ ┃ ┃ ┗ 🖼️ profile1, 2, 3.jpg # Avatares secundários
+ ┃ ┗ 📂 js
+ ┃   ┗ 📜 app.js           # Lógica de interatividade
+ ┣ 📜 index.html           # Documento principal
+ ┗ 📜 README.md            # Documentação do projeto
+```
 
-Para uma música pública no site, coloque um arquivo em `assets/music/` e configure o `src` do `<audio>` no `index.html`, ou adapte o player para uma URL pública.
+## 🚀 Como Executar na Sua Máquina
+
+Para testar ou alterar este projeto localmente, siga os seguintes passos:
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/SEU-USUARIO/anime_glass_ui_github_pages.git
+   ```
+2. **Aceda à pasta:**
+   ```bash
+   cd anime_glass_ui_github_pages
+   ```
+3. **Execute o projeto:**
+   Basta abrir o ficheiro `index.html` no seu navegador de preferência. 
+   *(Recomendação: Se utilizar o VS Code, instale a extensão **Live Server** para atualizar a página automaticamente ao guardar o código).*
+
+## 📌 Observações Importantes
+
+*   **Compatibilidade de Navegadores:** O efeito principal deste projeto (`backdrop-filter` no CSS) é suportado pela maioria dos navegadores modernos (Chrome, Edge, Safari, Firefox). No entanto, em versões muito antigas, o fundo poderá aparecer como uma cor sólida semi-transparente.
+*   **Edição das Cores:** Pode alterar facilmente o esquema de cores da aplicação acedendo ao ficheiro `style.css` e modificando as variáveis `:root` no topo do ficheiro.
+*   **Substituição de Imagens:** Se desejar colocar as suas próprias imagens, substitua os ficheiros dentro da pasta `assets/images/` mantendo preferencialmente o formato `.svg` para não perder qualidade.
+
+## 🤝 Como Contribuir
+
+Sinta-se à vontade para contribuir com melhorias para o projeto!
+
+1. Faça um *Fork* do projeto
+2. Crie uma *Branch* para a sua funcionalidade (`git checkout -b feature/MinhaNovaFeature`)
+3. Adicione as suas alterações (`git commit -m 'Adiciona uma nova funcionalidade'`)
+4. Faça o *Push* para a *Branch* (`git push origin feature/MinhaNovaFeature`)
+5. Abra um *Pull Request*
+
+---
+<div align="center">
+  Desenvolvido com 💜 por <strong>[Finn]</strong> <br>
+  <a href="https://github.com/Finnkkkk">GitHub</a> • <a href="https://linkedin.com/in/SEU-LINKEDIN">LinkedIn</a>
+</div>
